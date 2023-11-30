@@ -6,6 +6,7 @@ import { WishItem } from 'src/shared/models/wishitem';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   items : WishItem[] = [
     new WishItem('Book UFC stadium'),
@@ -14,4 +15,10 @@ export class AppComponent {
   ];
   
   title = 'wishlist';
+
+  toggleItem(item: WishItem) {
+    item.isComplete = !item.isComplete
+    console.log(item)
+  }
+
 }
