@@ -1,5 +1,14 @@
 <div class="container">
 
+  <form class="row mt-3 mb-3 g-3 align-items-center justify-content-center">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="newWishText" name="newWishText" value="type here" [(ngModel)]="newWishText">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary" (click)="$event.preventDefault; addNewWish()">Add</button>
+    </div>
+  </form>
+
   <div *ngIf="items.length === 0 ; else showItems">
     There are no wishes to display..
   </div>
@@ -13,7 +22,7 @@
             [checked]="item.isComplete"
             [attr.data-index]="ii"
             (click)="toggleItem(item)"
-            >{{ item.wishText }}
+            >  {{ item.wishText }}
           </label>
         </div>
       </li>
