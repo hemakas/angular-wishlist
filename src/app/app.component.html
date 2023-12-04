@@ -9,13 +9,27 @@
     </div>
   </form>
 
-  <div *ngIf="items.length === 0 ; else showItems">
+  <!-- filter wish -->
+  <div class="row mt-3 mb-3 align-items-center">
+    <div class="col-sm-3">
+      Filter Wishes
+    </div>
+    <div class="col-sm-3">
+      <select class="form-select" id="" [(ngModel)]="listFilter" (ngModelChange)="filterChanged($event)" >
+        <option value="0">All</option>
+        <option value="1">Unfulfilled</option>
+        <option value="2">Fulfilled</option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngIf="visibleItems.length === 0 ; else showItems">
     There are no wishes to display..
   </div>
 
   <ng-template #showItems>
     <ul class="wish-list">
-      <li *ngFor="let item of items; index as ii">
+      <li *ngFor="let item of visibleItems; index as ii">
         <div class="form-check">
           <label class="form-check-label" for="">
             <input type="checkbox" 
@@ -26,7 +40,7 @@
           </label>
         </div>
       </li>
-    </ul> 
+    </ul>
   </ng-template>
 
 </div>

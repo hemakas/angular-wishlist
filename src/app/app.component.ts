@@ -9,21 +9,33 @@ import { WishItem } from 'src/shared/models/wishitem';
 
 export class AppComponent {
   
-  // wish item array
-  items : WishItem[] = []
-  
   title = 'wishlist'
-  newWishText = ''
+  
+  // toggle wish item
+  items : WishItem[] = []  
+  toggleItem(item: WishItem) {
+    item.isComplete = !item.isComplete
+    console.log(item)
+  }
 
   // add new wish function
+  newWishText = ''
   addNewWish() {
     this.items.push(new WishItem(this.newWishText))
     this.newWishText = ''
   }
 
-  toggleItem(item: WishItem) {
-    item.isComplete = !item.isComplete
-    console.log(item)
+  // filter wishes
+  listFilter : String = '0'
+  visibleItems : WishItem[] = this.items
+  filterChanged(value: any) {
+    if (value === '0') {
+      this.visibleItems = this.items
+    } else if (value === '1') {
+      this.visibleItems = this.items.filter(item => !item.isComplete)
+    } else {
+      this.visibleItems = this.items.filter(item => item.isComplete)
+    }
   }
 
 }
