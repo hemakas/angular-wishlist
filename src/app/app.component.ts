@@ -15,7 +15,6 @@ export class AppComponent {
   items : WishItem[] = []  
   toggleItem(item: WishItem) {
     item.isComplete = !item.isComplete
-    console.log(item)
   }
 
   // add new wish function
@@ -27,14 +26,15 @@ export class AppComponent {
 
   // filter wishes
   listFilter : String = '0'
-  visibleItems : WishItem[] = this.items
-  filterChanged(value: any) {
+  get visibleItems() : WishItem[] {
+    let value = this.listFilter
+
     if (value === '0') {
-      this.visibleItems = this.items
+      return this.items
     } else if (value === '1') {
-      this.visibleItems = this.items.filter(item => !item.isComplete)
+      return this.items.filter(item => !item.isComplete)
     } else {
-      this.visibleItems = this.items.filter(item => item.isComplete)
+      return this.items.filter(item => item.isComplete)
     }
   }
 
