@@ -16,13 +16,8 @@ const filters = [
 export class AppComponent {
 
   title = 'wishlist'
-
-  // toggle wish item
   items : WishItem[] = []
-  toggleItem(item: WishItem) {
-    item.isComplete = !item.isComplete
-  }
-
+  
   // add new wish function
   newWishText = ''
   addNewWish() {
