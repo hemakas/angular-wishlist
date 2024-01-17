@@ -8,12 +8,6 @@ import { WishItem } from 'src/shared/models/wishitem';
 })
 
 export class AppComponent {
-
   items : WishItem[] = []
-  filter : any = () => {}
-
-  get visibleItems() : WishItem[] { 
-    return this.items.filter(this.filter)
-  }
-
+  filter : any
 }
