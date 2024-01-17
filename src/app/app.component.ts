@@ -17,13 +17,6 @@ export class AppComponent {
 
   title = 'wishlist'
   items : WishItem[] = []
-  
-  // add new wish function
-  newWishText = ''
-  addNewWish() {
-    this.items.push(new WishItem(this.newWishText))
-    this.newWishText = ''
-  }
 
   // filter wishes
   listFilter : any = '0'
