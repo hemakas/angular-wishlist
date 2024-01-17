@@ -11,11 +11,6 @@ export class WishListComponent {
   
   @Input() wishes : WishItem[] = []
 
-  constructor() {}
-
-  ngOnInit(): void {
-  }
-
   // toggle wish item
   toggleItem(item: WishItem) {
     item.isComplete = !item.isComplete
